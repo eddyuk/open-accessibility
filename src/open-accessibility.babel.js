@@ -59,23 +59,26 @@
         localStorage.setItem(LOCAL_STORAGE_OPTIONS_KEY, JSON.stringify(options));
     }
 
-    function applyTextZoom(selector, zoom) {
-        $(selector)
-            .not('.open-accessibility *') // To avoid messing up the menu bar itself
-            .each(function () {
-                var element = $(this);
+    function applyTextZoom(selector, zoom, targetElement) {
+        // If targetElement is provided, limit the scope to elements within that target
+        var elements = targetElement ? 
+            $(selector, targetElement).not('.open-accessibility *') : 
+            $(selector).not('.open-accessibility *'); // To avoid messing up the menu bar itself
+            
+        elements.each(function () {
+            var element = $(this);
 
-                var originalFontSize = element.attr('data-open-accessibility-text-original');
-                if (!originalFontSize) {
-                    originalFontSize = element.css('font-size');
-                    element.attr('data-open-accessibility-text-original', originalFontSize);
-                }
+            var originalFontSize = element.attr('data-open-accessibility-text-original');
+            if (!originalFontSize) {
+                originalFontSize = element.css('font-size');
+                element.attr('data-open-accessibility-text-original', originalFontSize);
+            }
 
-                var units = getUnit(originalFontSize) || '';
-                var fontSize = parseFloat(originalFontSize) * zoom;
+            var units = getUnit(originalFontSize) || '';
+            var fontSize = parseFloat(originalFontSize) * zoom;
 
-                element.css('font-size', fontSize + units);
-            });
+            element.css('font-size', fontSize + units);
+        });
     }
 
     function translateTheme(lang) {
@@ -128,7 +131,8 @@
             textSelector: '.open-accessibility-text',
             invert: false,
             localization: ['he'],
-            iconSize: 'm' // supported sizes are s(mall), m(edium), l(arge)
+            iconSize: 'm', // supported sizes are s(mall), m(edium), l(arge)
+            targetElement: null // Target element to apply accessibility features (defaults to body if null)
         };
 
         var userOptions = getUserOptions();
@@ -146,7 +150,7 @@
         element.prepend(TEMPLATE);
 
         var html = $('html');
-        var body = $('body');
+        var body = customOptions.targetElement || $('body');  // Use specified target element or default to body
         var container = $(".open-accessibility");
         var menu = $(".open-accessibility-menu");
         var expandButton = $(".open-accessibility-expand-button");
@@ -304,8 +308,11 @@
             });
         }
 
+        // Store the target element (passed element if specified, or body as default)
+        options.targetElement = customOptions.targetElement || body;
+
         // Initialize
-        applyTextZoom(options.textSelector, 1);
+        applyTextZoom(options.textSelector, 1, options.targetElement);
 
         apply();
 
@@ -340,15 +347,15 @@
             filters.push('brightness(' + options.brightness + '%)');
             filters.push('grayscale(' + options.grayscale + '%)');
             var filterValue = filters.join(' ');
-            body.css('filter', filterValue);
-            body.css('-ms-filter', filterValue);
-            body.css('-moz-filter', filterValue);
-            body.css('-webkit-filter', filterValue);
-            body.css('-o-filter', filterValue);
+            options.targetElement.css('filter', filterValue);
+            options.targetElement.css('-ms-filter', filterValue);
+            options.targetElement.css('-moz-filter', filterValue);
+            options.targetElement.css('-webkit-filter', filterValue);
+            options.targetElement.css('-o-filter', filterValue);
 
             // ----------
             // Zoom
-            applyTextZoom(options.textSelector, options.zoom);
+            applyTextZoom(options.textSelector, options.zoom, options.targetElement);
 
             //$('.open-accessibility-zoom').css('transform', 'scale(' + options.zoom + ')');
 
