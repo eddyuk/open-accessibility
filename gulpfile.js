@@ -33,6 +33,12 @@ function css() {
   return gulp.src('./src/**/*.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer())
+    .pipe(rename(function(path) {
+      // Rename style.scss output to open-accessibility.css
+      if (path.basename === 'style') {
+        path.basename = 'open-accessibility';
+      }
+    }))
     .pipe(gulp.dest('./dist'))
     .pipe(cssmin())
     .pipe(rename(function(path) {
