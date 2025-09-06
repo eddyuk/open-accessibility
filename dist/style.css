@@ -1,0 +1,199 @@
+.open-accessibility {
+  position: fixed;
+  direction: rtl;
+  z-index: 10;
+  right: 30px;
+  top: 30px;
+  min-width: 300px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.open-accessibility.open-accessibility-size-s.open-accessibility-collapsed .open-accessibility-container {
+  width: 40px;
+  height: 40px;
+}
+.open-accessibility.open-accessibility-size-s.open-accessibility-collapsed .open-accessibility-container .open-accessibility-expand-button {
+  line-height: 40px;
+  width: 40px;
+  height: 40px;
+}
+.open-accessibility.open-accessibility-size-s.open-accessibility-collapsed .open-accessibility-container .open-accessibility-expand-button svg {
+  width: 24px;
+  height: 40px;
+}
+.open-accessibility.open-accessibility-size-l.open-accessibility-collapsed .open-accessibility-container {
+  width: 160px;
+  height: 160px;
+}
+.open-accessibility.open-accessibility-size-l.open-accessibility-collapsed .open-accessibility-container .open-accessibility-expand-button {
+  line-height: 160px;
+  width: 160px;
+  height: 80px;
+}
+.open-accessibility.open-accessibility-size-l.open-accessibility-collapsed .open-accessibility-container .open-accessibility-expand-button svg {
+  width: 80px;
+  height: 160px;
+}
+.open-accessibility-container {
+  overflow: hidden;
+  box-sizing: border-box;
+  transition: transform 0.2s ease-in-out, width 0.3s ease-in-out, height 0.3s ease-in-out, background-color 0.3s ease-in-out, color 0.3s ease-in-out, border-radius 0.3s ease-in-out;
+  box-shadow: rgba(0, 0, 0, 0.137255) 0px 0px 4px 0px, rgba(0, 0, 0, 0.278431) 0px 4px 8px 0px;
+}
+.open-accessibility-zoom {
+  transition: zoom 0.3s ease-in-out;
+}
+.open-accessibility-cursor *:hover, .open-accessibility-cursor * {
+  cursor: url("images/cursor.png"), default;
+}
+.open-accessibility-cursor-workaround {
+  pointer-events: none;
+  position: absolute;
+  width: 38px;
+  height: 60px;
+  z-index: 1000;
+  background-image: url("images/cursor.png");
+}
+.open-accessibility-highlighted-links .highlighted-link {
+  text-decoration: underline !important;
+}
+.open-accessibility-highlighted-links a,
+.open-accessibility-highlighted-links a:link,
+.open-accessibility-highlighted-links a:visited,
+.open-accessibility-highlighted-links a:hover,
+.open-accessibility-highlighted-links a:active {
+  text-decoration: underline !important;
+}
+.open-accessibility-close-button {
+  box-sizing: border-box;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+.open-accessibility-menu {
+  width: 300px;
+  height: 500px;
+}
+.open-accessibility-menu-button {
+  float: right;
+  box-sizing: border-box;
+  width: 150px;
+  height: 105px;
+  cursor: pointer;
+  transition: background-color 0.1s;
+  text-align: center;
+  position: relative;
+  border-radius: 2px;
+}
+.open-accessibility-menu-button:hover {
+  background-color: #f5f5f5;
+}
+.open-accessibility-menu-button span {
+  position: absolute;
+  display: block;
+  width: 100%;
+  bottom: 10px;
+  font-weight: bold;
+  font-size: 17px;
+}
+.open-accessibility-menu-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  font-family: Consolas, sans-serif;
+  background-color: #f8f8f8;
+  font-size: 10px;
+}
+.open-accessibility-menu-footer a {
+  font-weight: bold;
+  text-decoration: underline;
+}
+.open-accessibility-menu-footer a:link, .open-accessibility-menu-footer a:visited, .open-accessibility-menu-footer a:hover, .open-accessibility-menu-footer a:active {
+  color: #000000;
+}
+.open-accessibility-expand-button {
+  cursor: pointer;
+  position: absolute;
+  line-height: 80px;
+  width: 80px;
+  height: 80px;
+  text-align: center;
+}
+.open-accessibility-expand-button svg {
+  fill: #fff;
+  width: 40px;
+  height: 80px;
+  line-height: 80px;
+}
+.open-accessibility.open-accessibility-expanded .open-accessibility-container {
+  width: 300px;
+  height: 500px;
+  border-radius: 2px;
+  color: #333;
+  background-color: #fff;
+  transform: scale(1, 1) translate3d(0, 0, 0);
+}
+.open-accessibility.open-accessibility-collapsed .open-accessibility-container {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  color: white;
+  background-color: #2196F3;
+}
+.open-accessibility.open-accessibility-collapsed .open-accessibility-container:hover {
+  transform: scale(1, 1) translate3d(0, 0, 0);
+  box-shadow: rgba(0, 0, 0, 0.145098) 0px 0px 4.72988px 0px, rgba(0, 0, 0, 0.294118) 0px 4.72988px 9.45976px 0px;
+}
+
+@media screen and (max-width: 780px) {
+  .open-accessibility {
+    right: 0px;
+    top: 0px;
+  }
+  .open-accessibility .open-accessibility-menu {
+    height: 10%;
+    width: 100%;
+  }
+  .open-accessibility.open-accessibility-expanded .open-accessibility-container {
+    height: 10%;
+    width: 100%;
+  }
+  .open-accessibility-menu-button {
+    width: 25%;
+    height: 10%;
+  }
+  .open-accessibility-menu-footer {
+    display: none !important;
+  }
+  .open-accessibility-close-button {
+    height: 0px;
+  }
+  .open-accessibility-expand-button {
+    cursor: pointer;
+    position: absolute;
+    line-height: 80px;
+    width: 50px;
+    height: 60px;
+    text-align: center;
+  }
+  .open-accessibility-expand-button svg {
+    fill: #fff;
+    width: 35px;
+    height: 60px;
+    line-height: 80px;
+  }
+  .open-accessibility.open-accessibility-expanded {
+    position: static;
+  }
+  .open-accessibility.open-accessibility-collapsed .open-accessibility-container {
+    width: 50px;
+    height: 55px;
+    border-radius: 50% 0% 0% 50%;
+    color: white;
+    background-color: #2196F3;
+  }
+}

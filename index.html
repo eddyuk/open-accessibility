@@ -20,12 +20,25 @@
 
     <script>
         $(function () {
+            // Example 1: Apply to the entire body (default behavior)
             $('body').openAccessibility({
                 textSelector: 'div,span,p,a,td,table,tr',
                 isMenuOpened: false,
                 iconSize: 'm',
                 localization: ['he'],
             });
+            
+            // Example 2: Apply to a specific element only
+            // Uncomment this to test targeting a specific element
+            /*
+            $('#specific-content').openAccessibility({
+                textSelector: 'div,span,p,a,td,table,tr',
+                isMenuOpened: false,
+                iconSize: 'm',
+                localization: ['he'],
+                targetElement: $('#specific-content') // Pass the target element to apply accessibility features
+            });
+            */
         })
     </script>
 

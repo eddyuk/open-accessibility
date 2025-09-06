@@ -41,6 +41,18 @@ $('body').openAccessibility({
 });
 ```
 
+#### Targeting Specific Elements
+
+By default, the accessibility features are applied to the element the plugin was initialized on. You can specify a target element to apply the features to a specific section of your page:
+
+```
+// Apply accessibility features to a specific div only
+$('#my-div').openAccessibility({
+  targetElement: $('#my-div'),
+  textSelector: 'div,span,p,a'
+});
+```
+
 Full list of default options:
 ```
 isMenuOpened: false
@@ -58,6 +70,7 @@ textSelector: '.open-accessibility-text'
 invert: false
 iconSize: 'm',
 localization: ['he']
+targetElement: null // Target element to apply accessibility features (defaults to element if null)
 ```
 
 ### Langual support

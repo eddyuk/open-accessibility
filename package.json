@@ -5,7 +5,7 @@
   "main": "dist/open-accessibility.min.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jossef/open-accessibility"
+    "url": "https://github.com/eddyuk/open-accessibility"
   },
   "keywords": [
     "accessibility",
@@ -14,27 +14,28 @@
     "text zoom",
     "open-accessibility"
   ],
-  "author": "Jossef Harush",
+  "author": "Jossef Harush (Original), eddyuk (Contributor)",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/jossef/open-accessibility/issues"
+    "url": "https://github.com/eddyuk/open-accessibility/issues"
   },
-  "homepage": "https://jossef.github.io/open-accessibility/",
+  "homepage": "https://github.com/eddyuk/open-accessibility",
   "dependencies": {
     "jquery": "*"
   },
   "devDependencies": {
-    "babel-core": "^6.18.2",
-    "babel-preset-es2015": "^6.18.0",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.1",
-    "gulp-babel": "^6.1.2",
+    "@babel/core": "^7.22.5",
+    "@babel/preset-env": "^7.22.5",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-babel": "^8.0.0",
     "gulp-concat": "^2.6.1",
-    "gulp-css-base64": "^1.3.4",
-    "gulp-cssmin": "^0.1.7",
-    "gulp-file-include": "^1.0.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^2.3.2",
-    "gulp-uglify": "^2.0.0"
+    "gulp-css-base64": "^2.0.0",
+    "gulp-cssmin": "^0.2.0",
+    "gulp-file-include": "^2.3.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-uglify": "^3.0.2",
+    "sass": "^1.63.6"
   }
 }
